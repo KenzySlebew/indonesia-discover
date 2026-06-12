@@ -95,11 +95,14 @@ export default function IndonesiaMap({ selectedKey, onProvinceClick }: Indonesia
 
   const options: Highcharts.Options = {
     chart: {
-      map: topology as Highcharts.GeoJSON,
+      map: topology as unknown as Highcharts.GeoJSON,
       backgroundColor: 'transparent',
       style: { fontFamily: 'Inter, sans-serif' },
       height: 480,
       margin: [0, 0, 0, 0],
+      animation: {
+        duration: 300
+      }
     },
     title: { text: '' },
     subtitle: { text: '' },
@@ -107,6 +110,9 @@ export default function IndonesiaMap({ selectedKey, onProvinceClick }: Indonesia
     exporting: { enabled: false },
     mapNavigation: {
       enabled: true,
+      enableMouseWheelZoom: false, // Disable wheel zoom to prevent page scroll interference, but allow pan/zoom buttons
+      enableTouchZoom: true,
+      enableDoubleClickZoom: true,
       buttonOptions: {
         verticalAlign: 'bottom',
         align: 'right',
@@ -143,6 +149,15 @@ export default function IndonesiaMap({ selectedKey, onProvinceClick }: Indonesia
       pointFormat: '<span style="color:#CE1126">●</span> {point.name}',
       useHTML: true,
     },
+    plotOptions: {
+      series: {
+        states: {
+          inactive: {
+            opacity: 1 // Keep other regions visible instead of dimming them, reducing repaint lag
+          }
+        }
+      }
+    },
     series: [
       {
         type: 'map',
@@ -159,11 +174,17 @@ export default function IndonesiaMap({ selectedKey, onProvinceClick }: Indonesia
             color: '#FDECEA',
             borderColor: '#CE1126',
             borderWidth: 2,
+            animation: {
+              duration: 150
+            }
           },
           select: {
             color: '#FCE4E4',
             borderColor: '#CE1126',
             borderWidth: 2.5,
+            animation: {
+              duration: 150
+            }
           },
         },
         dataLabels: {

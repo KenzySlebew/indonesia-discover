@@ -1,24 +1,18 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import IndonesiaMap from './IndonesiaMap';
 import ProvincePanel from './ProvincePanel';
 
 /**
  * Hero — split-screen layout: left (text + CTA) | right (interactive map).
- * ProvincePanel appears BELOW map on click, NOT as an overlay.
- * No stats below map — stats only in AboutProgram section.
+ * ProvincePanel appears as an overlay floating card on the map.
  * tasteskill 4.7: hero fits viewport, max 4 text elements, max 2-line headline.
  */
 export default function Hero() {
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
 
   const handleProvinceClick = useCallback((key: string) => {
     setSelectedKey(key);
-    // Smooth scroll to panel after click
-    setTimeout(() => {
-      panelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 150);
   }, []);
 
   return (
@@ -101,15 +95,11 @@ export default function Hero() {
 
           {/* RIGHT: Interactive map (7 cols) */}
           <div className="lg:col-span-7 flex items-center justify-center">
-            <div className="map-wrapper w-full max-w-[680px] lg:max-w-none">
+            <div className="map-wrapper w-full max-w-[680px] lg:max-w-none relative">
               <IndonesiaMap selectedKey={selectedKey} onProvinceClick={handleProvinceClick} />
+              <ProvincePanel selectedKey={selectedKey} onClose={() => setSelectedKey(null)} />
             </div>
           </div>
-        </div>
-
-        {/* ── Province detail panel (BELOW map, not overlay) ─── */}
-        <div ref={panelRef}>
-          <ProvincePanel selectedKey={selectedKey} onClose={() => setSelectedKey(null)} />
         </div>
       </div>
     </section>

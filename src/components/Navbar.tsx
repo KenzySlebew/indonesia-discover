@@ -30,10 +30,8 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? 'bg-white/95 backdrop-blur-sm shadow-[0_1px_0_rgba(7,28,83,0.08)]'
-            : 'bg-transparent'
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm ${
+          scrolled ? 'shadow-[0_1px_0_rgba(7,28,83,0.08)]' : 'border-b border-abu-muda/50'
         }`}
         style={{ height: '72px' }}  /* tasteskill: max 72px */
       >
@@ -48,13 +46,9 @@ export default function Navbar() {
             {/* Flag mark — two bars */}
             <div className="flex flex-col gap-[3px]">
               <div className="h-[3px] w-5 rounded-full bg-merah" />
-              <div className={`h-[3px] w-5 rounded-full transition-colors duration-500 ${
-                scrolled ? 'bg-navy' : 'bg-white/70'
-              }`} />
+              <div className="h-[3px] w-5 rounded-full bg-navy" />
             </div>
-            <span className={`font-heading font-bold text-sm tracking-tight transition-colors duration-500 ${
-              scrolled ? 'text-navy' : 'text-white'
-            }`}>
+            <span className="font-heading font-bold text-sm tracking-tight text-navy">
               Berkarya untuk Indonesia
             </span>
           </a>
@@ -65,9 +59,7 @@ export default function Navbar() {
               <button
                 key={link.href}
                 onClick={() => scrollTo(link.href)}
-                className={`font-body text-sm font-medium transition-colors duration-300 relative group focus-ring rounded-sm ${
-                  scrolled ? 'text-abu hover:text-navy' : 'text-white/80 hover:text-white'
-                }`}
+                className="font-body text-sm font-medium transition-colors duration-300 relative group focus-ring rounded-sm text-abu hover:text-navy"
               >
                 {link.label}
                 {/* Underline from center */}
@@ -89,9 +81,7 @@ export default function Navbar() {
 
             {/* Mobile hamburger */}
             <button
-              className={`md:hidden p-2 rounded-xl transition-colors focus-ring ${
-                scrolled ? 'text-navy hover:bg-abu-muda' : 'text-white hover:bg-white/10'
-              }`}
+              className="md:hidden p-2 rounded-xl transition-colors focus-ring text-navy hover:bg-abu-muda"
               aria-label="Buka menu navigasi"
               onClick={() => setDrawerOpen(true)}
             >
