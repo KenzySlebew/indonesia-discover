@@ -1,7 +1,6 @@
 /**
- * Footer — navy background.
+ * Footer — deep chocolate brown background.
  * The ONE deliberate dark element on a light-theme page.
- * tasteskill: no scroll-to-top button, no version labels, no gradient top border.
  * Simple 3-column: Branding | Navigation | Social.
  */
 export default function Footer() {
@@ -49,7 +48,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-navy py-14" aria-label="Footer">
-      {/* Single hairline top border — within navy, for structural clarity */}
+      {/* Single hairline top border */}
       <div className="border-t border-white/10 -mt-14 mb-14" />
 
       <div className="section-container">

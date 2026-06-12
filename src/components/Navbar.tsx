@@ -31,7 +31,7 @@ export default function Navbar() {
     <>
       <header
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm ${
-          scrolled ? 'shadow-[0_1px_0_rgba(7,28,83,0.08)]' : 'border-b border-abu-muda/50'
+          scrolled ? 'shadow-[0_1px_0_rgba(59,34,22,0.08)]' : 'border-b border-abu-muda/50'
         }`}
         style={{ height: '72px' }}  /* tasteskill: max 72px */
       >

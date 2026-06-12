@@ -26,11 +26,11 @@ export interface Destination {
 export const destinations: Destination[] = [
   {
     id: 1,
-    title: 'Taman Nasional Baluran',
+    title: 'Gunung Bromo',
     location: 'Jawa Timur',
-    description: 'Savana Afrika-nya Indonesia — padang rumput luas dengan panorama Gunung Baluran dan satwa liar eksotis.',
-    image: '/images/destinations/baluran.jpg',
-    video: '/videos/destinations/baluran.mp4',
+    description: 'Keajaiban alam dengan lautan pasir luas dan kawah aktif yang menyuguhkan panorama matahari terbit paling ikonik di Indonesia.',
+    image: '/images/bromo.jpg',
+    video: '/videos/destinations/bromo.mp4',
   },
   {
     id: 2,

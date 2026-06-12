@@ -26,3 +26,6 @@ dist-ssr
 # Agent directory
 .agent/
 
+# Large videos
+public/videos/destinations/danau-toba.mp4
+public/videos/destinations/raja-ampat.mp4

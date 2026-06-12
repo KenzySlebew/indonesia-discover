@@ -22,33 +22,33 @@
 
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    color: #374151;            /* abu-gelap — default body text */
+    color: #4A3A2E;            /* warm dark brown — default body text */
     background-color: #FFFFFF;
     line-height: 1.6;
   }
 
-  /* Selection color — merah accent */
+  /* Selection color — brown accent */
   ::selection {
-    background-color: rgba(206, 17, 38, 0.12);
-    color: #A50D1F;
+    background-color: rgba(139, 94, 60, 0.15);
+    color: #6B3F1F;
   }
 
-  /* Simple scrollbar — not gradient, not decorative (tasteskill: no decoration) */
+  /* Simple scrollbar */
   ::-webkit-scrollbar {
     width: 4px;
   }
   ::-webkit-scrollbar-track {
-    background: #F5F5F5;
+    background: #FAF6F1;
   }
   ::-webkit-scrollbar-thumb {
-    background: #CBD5E1;
+    background: #C4B5A5;
     border-radius: 2px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #CE1126;
+    background: #8B5E3C;
   }
 
-  /* Reduced motion respect (tasteskill 6.B — mandatory) */
+  /* Reduced motion respect */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -63,7 +63,7 @@
 /* ─── COMPONENT LAYER ───────────────────────────────────────────────────── */
 @layer components {
 
-  /* ── Buttons (tasteskill 4.5 — WCAG AA contrast, no wrap) ───────────── */
+  /* ── Buttons — WCAG AA contrast ───────────────────────────────────────── */
   .btn-primary {
     @apply inline-flex items-center gap-2 px-6 py-3 rounded-full
            bg-merah text-white font-heading font-semibold text-sm
@@ -71,7 +71,6 @@
            hover:bg-merah-dark active:scale-[0.98] active:-translate-y-px
            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-merah focus-visible:ring-offset-2
            whitespace-nowrap;
-    /* contrast: white on #CE1126 — 4.56:1 WCAG AA ✓ */
   }
 
   .btn-outline {
@@ -92,7 +91,7 @@
            whitespace-nowrap;
   }
 
-  /* ── Card (one corner-radius rule: 2xl = 16px) ─────────────────────── */
+  /* ── Card ──────────────────────────────────────────────────────────────── */
   .card {
     @apply rounded-2xl bg-white border border-abu-muda shadow-card
            transition-shadow duration-300
@@ -104,7 +103,7 @@
     @apply mx-auto max-w-7xl px-6 lg:px-10;
   }
 
-  /* Heading scale (Outfit, tasteskill 4.1 sizing) */
+  /* Heading scale (Outfit) */
   .heading-xl {
     @apply font-heading font-bold text-4xl md:text-5xl lg:text-6xl
            leading-[1.08] tracking-tight text-navy;
@@ -129,7 +128,7 @@
     @apply font-body text-sm leading-relaxed text-abu;
   }
 
-  /* Eyebrow label (tasteskill: max 1 per 3 sections, simple) */
+  /* Eyebrow label */
   .eyebrow {
     @apply text-merah font-display font-semibold text-xs tracking-[0.18em] uppercase;
   }
@@ -150,24 +149,21 @@
   .dest-card {
     @apply relative rounded-2xl overflow-hidden bg-navy cursor-pointer
            transition-transform duration-500 ease-out-expo;
-    aspect-ratio: 3/2;
+    aspect-ratio: 16/9;
   }
 }
 
 /* ─── UTILITY LAYER ─────────────────────────────────────────────────────── */
 @layer utilities {
-  /* Min height using dvh for viewport stability (tasteskill 3.E) */
   .min-h-dvh {
     min-height: 100dvh;
   }
 
-  /* Focus ring that works on all backgrounds */
   .focus-ring {
     @apply focus-visible:outline-none focus-visible:ring-2
            focus-visible:ring-merah focus-visible:ring-offset-2;
   }
 
-  /* Numeric tabular figures for stats/counters */
   .tabular {
     font-variant-numeric: tabular-nums;
   }

@@ -98,7 +98,7 @@ export default function IndonesiaMap({ selectedKey, onProvinceClick }: Indonesia
       map: topology as unknown as Highcharts.GeoJSON,
       backgroundColor: 'transparent',
       style: { fontFamily: 'Inter, sans-serif' },
-      height: 480,
+      height: 600,
       margin: [0, 0, 0, 0],
       animation: {
         duration: 300
@@ -110,7 +110,7 @@ export default function IndonesiaMap({ selectedKey, onProvinceClick }: Indonesia
     exporting: { enabled: false },
     mapNavigation: {
       enabled: true,
-      enableMouseWheelZoom: false, // Disable wheel zoom to prevent page scroll interference, but allow pan/zoom buttons
+      enableMouseWheelZoom: false,
       enableTouchZoom: true,
       enableDoubleClickZoom: true,
       buttonOptions: {
@@ -118,23 +118,23 @@ export default function IndonesiaMap({ selectedKey, onProvinceClick }: Indonesia
         align: 'right',
         theme: {
           fill: '#FFFFFF',
-          stroke: '#E5E7EB',
-          style: { color: '#071C53', fontSize: '12px' },
+          stroke: '#E8DDD3',
+          style: { color: '#3B2216', fontSize: '12px' },
           states: {
-            hover: { fill: '#F5F5F5', stroke: '#CE1126' },
+            hover: { fill: '#FAF6F1', stroke: '#8B5E3C' },
           },
         },
       },
     },
     colorAxis: {
       min: 0,
-      minColor: '#F5F5F5',
-      maxColor: '#D7263D',
+      minColor: '#FAF6F1',
+      maxColor: '#A0714D',
       visible: false,
     },
     legend: { enabled: false },
     tooltip: {
-      backgroundColor: '#071C53',
+      backgroundColor: '#3B2216',
       borderColor: 'transparent',
       borderRadius: 8,
       borderWidth: 0,
@@ -146,14 +146,14 @@ export default function IndonesiaMap({ selectedKey, onProvinceClick }: Indonesia
         fontWeight: '500',
       },
       headerFormat: '',
-      pointFormat: '<span style="color:#CE1126">●</span> {point.name}',
+      pointFormat: '<span style="color:#8B5E3C">●</span> {point.name}',
       useHTML: true,
     },
     plotOptions: {
       series: {
         states: {
           inactive: {
-            opacity: 1 // Keep other regions visible instead of dimming them, reducing repaint lag
+            opacity: 1
           }
         }
       }
@@ -165,22 +165,22 @@ export default function IndonesiaMap({ selectedKey, onProvinceClick }: Indonesia
         name: 'Provinsi',
         borderColor: '#FFFFFF',
         borderWidth: 1,
-        nullColor: '#E5E7EB',
+        nullColor: '#E8DDD3',
         joinBy: 'hc-key',
         allowPointSelect: true,
         cursor: 'pointer',
         states: {
           hover: {
-            color: '#FDECEA',
-            borderColor: '#CE1126',
+            color: '#F5EDE4',
+            borderColor: '#8B5E3C',
             borderWidth: 2,
             animation: {
               duration: 150
             }
           },
           select: {
-            color: '#FCE4E4',
-            borderColor: '#CE1126',
+            color: '#EDE0D4',
+            borderColor: '#6B3F1F',
             borderWidth: 2.5,
             animation: {
               duration: 150

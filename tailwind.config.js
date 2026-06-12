@@ -4,40 +4,38 @@ export default {
   theme: {
     extend: {
       colors: {
-        // PRIMARY ACCENT — one accent, locked across all pages (tasteskill 4.2)
+        // PRIMARY ACCENT — warm brown, locked across all pages
         merah: {
-          DEFAULT: '#CE1126',
-          dark: '#A50D1F',
-          light: '#FDECEA',
-          mid: '#D7263D',
+          DEFAULT: '#8B5E3C',     // warm medium brown (primary accent)
+          dark: '#6B3F1F',        // dark espresso
+          light: '#F5EDE4',       // cream light
+          mid: '#A0714D',         // mid brown
         },
-        // SECONDARY / HEADINGS / FOOTER
+        // SECONDARY / HEADINGS / FOOTER — deep chocolate brown
         navy: {
-          DEFAULT: '#071C53',
-          light: '#0D2B7A',
-          soft: '#1A3A7A',
+          DEFAULT: '#3B2216',     // deep chocolate (headings, footer)
+          light: '#5A3A28',
+          soft: '#6B4A34',
         },
-        // LIGHT SURFACES (all within same light family — tasteskill 4.11)
+        // LIGHT SURFACES
         putih: '#FFFFFF',
-        'abu-terang': '#F5F5F5',  // subtle section bg tint, same light family
+        'abu-terang': '#FAF6F1',  // warm cream tint
         abu: {
-          DEFAULT: '#6B7280',
-          gelap: '#374151',
-          muda: '#E5E7EB',
+          DEFAULT: '#7D6B5D',     // warm gray-brown
+          gelap: '#4A3A2E',       // dark warm gray
+          muda: '#E8DDD3',        // soft warm border
         },
-        // DARK — ONLY for footer (the one deliberate dark element)
+        // DARK — ONLY for footer
         hitam: {
-          DEFAULT: '#0A0A0A',
+          DEFAULT: '#1A0E06',
         },
       },
       fontFamily: {
-        // NO SERIF per tasteskill 4.1 — sans-serif display only
         heading: ['Outfit', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         display: ['Outfit', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         body: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
       },
       fontSize: {
-        // Display scale — planned with image size per tasteskill 4.7
         'display-sm': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.025em' }],
         'display-md': ['4.5rem', { lineHeight: '1.08', letterSpacing: '-0.03em' }],
         'display-lg': ['5.5rem', { lineHeight: '1.05', letterSpacing: '-0.035em' }],
@@ -47,18 +45,15 @@ export default {
         22: '5.5rem',
       },
       borderRadius: {
-        // SHAPE CONSISTENCY LOCK (tasteskill 4.4):
-        // Cards = 2xl (16px), Buttons = full (pill), Inputs = xl (12px)
         '2xl': '16px',
       },
       boxShadow: {
-        // Tinted to background hue (tasteskill 4.4 — no pure black drop shadows)
-        'card': '0 1px 3px rgba(7, 28, 83, 0.06), 0 8px 24px -4px rgba(7, 28, 83, 0.08)',
-        'card-hover': '0 4px 16px rgba(206, 17, 38, 0.1), 0 16px 40px -8px rgba(7, 28, 83, 0.12)',
-        'merah': '0 4px 20px rgba(206, 17, 38, 0.25)',
+        // Brown-tinted shadows for warmth
+        'card': '0 1px 3px rgba(59, 34, 22, 0.06), 0 8px 24px -4px rgba(59, 34, 22, 0.08)',
+        'card-hover': '0 4px 16px rgba(139, 94, 60, 0.12), 0 16px 40px -8px rgba(59, 34, 22, 0.14)',
+        'merah': '0 4px 20px rgba(139, 94, 60, 0.3)',
       },
       animation: {
-        // MOTIVATED animations only (tasteskill: motion must serve a purpose)
         'fade-up': 'fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both',
         'fade-in': 'fade-in 0.4s ease both',
         'slide-in': 'slide-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both',

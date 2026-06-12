@@ -4,9 +4,8 @@ import { destinations } from '../../data/destinations';
 
 /**
  * Destination carousel CTA section.
- * Background: abu-terang (#F5F5F5) — light family, NOT dark navy.
- * tasteskill 4.11: stays in light theme. Full-width 3:2 image cards.
- * One eyebrow allowed here (total page: hero + this = 2, max for 4 sections = 2).
+ * Background: abu-terang (warm cream).
+ * Uses 16:9 aspect ratio cards for a more compact, user-friendly view.
  */
 export default function CallToAction() {
   const [current, setCurrent] = useState(0);
@@ -55,7 +54,7 @@ export default function CallToAction() {
       className="bg-abu-terang py-24 lg:py-32"
     >
       <div className="section-container">
-        {/* ── Header with eyebrow (the 2nd and final allowed eyebrow) */}
+        {/* ── Header with eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -69,7 +68,7 @@ export default function CallToAction() {
             </h2>
           </div>
 
-          {/* Nav controls — right-aligned, simple bordered circles */}
+          {/* Nav controls */}
           <div className="flex items-center gap-3" aria-label="Navigasi carousel">
             <button
               onClick={prev}
@@ -97,7 +96,7 @@ export default function CallToAction() {
           </div>
         </motion.div>
 
-        {/* ── Card — full width, 3:2 ratio */}
+        {/* ── Card — full width, 16:9 ratio (compact) */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -107,7 +106,7 @@ export default function CallToAction() {
         >
           <div
             className="dest-card w-full"
-            style={{ aspectRatio: '3/2' }}
+            style={{ aspectRatio: '16/9' }}
           >
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
@@ -153,7 +152,7 @@ export default function CallToAction() {
                 {/* Card content */}
                 <div className="absolute inset-x-0 bottom-0 p-8 sm:p-10">
                   <div className="flex items-center gap-2 mb-3">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#CE1126" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#8B5E3C" aria-hidden="true">
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
                     </svg>
                     <span className="font-body text-white/70 text-sm">{dest.location}</span>
