@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── FONTS ─────────────────────────────────────────────────────────────── */
+/* Outfit + Inter loaded via index.html <link> */
+
+/* ─── BASE LAYER ─────────────────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 72px; /* navbar height */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #374151;            /* abu-gelap — default body text */
+    background-color: #FFFFFF;
+    line-height: 1.6;
+  }
+
+  /* Selection color — merah accent */
+  ::selection {
+    background-color: rgba(206, 17, 38, 0.12);
+    color: #A50D1F;
+  }
+
+  /* Simple scrollbar — not gradient, not decorative (tasteskill: no decoration) */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F5F5F5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #CE1126;
+  }
+
+  /* Reduced motion respect (tasteskill 6.B — mandatory) */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ─── COMPONENT LAYER ───────────────────────────────────────────────────── */
+@layer components {
+
+  /* ── Buttons (tasteskill 4.5 — WCAG AA contrast, no wrap) ───────────── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full
+           bg-merah text-white font-heading font-semibold text-sm
+           transition-all duration-300 ease-out-expo
+           hover:bg-merah-dark active:scale-[0.98] active:-translate-y-px
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-merah focus-visible:ring-offset-2
+           whitespace-nowrap;
+    /* contrast: white on #CE1126 — 4.56:1 WCAG AA ✓ */
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full
+           border border-navy text-navy font-heading font-semibold text-sm
+           transition-all duration-300 ease-out-expo
+           hover:bg-navy hover:text-white active:scale-[0.98]
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2
+           whitespace-nowrap;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full
+           text-abu font-body text-sm
+           transition-colors duration-200
+           hover:text-navy hover:bg-abu-muda
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-1
+           whitespace-nowrap;
+  }
+
+  /* ── Card (one corner-radius rule: 2xl = 16px) ─────────────────────── */
+  .card {
+    @apply rounded-2xl bg-white border border-abu-muda shadow-card
+           transition-shadow duration-300
+           hover:shadow-card-hover;
+  }
+
+  /* ── Section layout helpers ─────────────────────────────────────────── */
+  .section-container {
+    @apply mx-auto max-w-7xl px-6 lg:px-10;
+  }
+
+  /* Heading scale (Outfit, tasteskill 4.1 sizing) */
+  .heading-xl {
+    @apply font-heading font-bold text-4xl md:text-5xl lg:text-6xl
+           leading-[1.08] tracking-tight text-navy;
+  }
+
+  .heading-lg {
+    @apply font-heading font-bold text-3xl md:text-4xl lg:text-5xl
+           leading-[1.1] tracking-tight text-navy;
+  }
+
+  .heading-md {
+    @apply font-heading font-semibold text-2xl md:text-3xl
+           leading-[1.2] tracking-tight text-navy;
+  }
+
+  /* Body text */
+  .body-lg {
+    @apply font-body text-base md:text-lg leading-relaxed text-abu;
+  }
+
+  .body-sm {
+    @apply font-body text-sm leading-relaxed text-abu;
+  }
+
+  /* Eyebrow label (tasteskill: max 1 per 3 sections, simple) */
+  .eyebrow {
+    @apply text-merah font-display font-semibold text-xs tracking-[0.18em] uppercase;
+  }
+
+  /* ── Video preview panel (province hover) ───────────────────────────── */
+  .province-preview {
+    @apply relative w-full rounded-2xl overflow-hidden bg-abu-muda
+           border border-abu-muda;
+    aspect-ratio: 4/3;
+  }
+
+  /* ── Map container ───────────────────────────────────────────────────── */
+  .map-wrapper {
+    @apply relative w-full;
+  }
+
+  /* ── Destination card (CTA carousel) ────────────────────────────────── */
+  .dest-card {
+    @apply relative rounded-2xl overflow-hidden bg-navy cursor-pointer
+           transition-transform duration-500 ease-out-expo;
+    aspect-ratio: 3/2;
+  }
+}
+
+/* ─── UTILITY LAYER ─────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Min height using dvh for viewport stability (tasteskill 3.E) */
+  .min-h-dvh {
+    min-height: 100dvh;
+  }
+
+  /* Focus ring that works on all backgrounds */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-merah focus-visible:ring-offset-2;
+  }
+
+  /* Numeric tabular figures for stats/counters */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
